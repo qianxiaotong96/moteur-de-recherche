@@ -57,10 +57,18 @@ html = """<!DOCTYPE html>
 	</style>
 </head>
 <body>
+	<script type="text/javascript">
+		function jump(){
+			if(document.getElementById('text').value)
+				document.form.action = "pageB.html";
+			else
+				document.form.action = "pageA.html";
+		}
+	</script>
 	<div class="all">
 		<img src="logo.png" alt="logo">
 	<form method="post" action="pageB.py" class="recherche">
-		<input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="Valider">
+		<input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="Valider" onclick="jump()">
 	</form>
 	</div>
 </body>

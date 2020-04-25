@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #coding:utf-8
 import cgi
 
@@ -9,9 +10,10 @@ html = """<!DOCTYPE html>
 	<title>Cherche</title>
 	<style type="text/css">
 	
-		img{
-			width:300px;
-			height:300px;
+		h1{
+			font-family: Georgia;
+			text-shadow:#f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0;
+			color: deepskyblue;
 			position: absolute;
 			top: 40%;
 			left: 50%;
@@ -20,6 +22,10 @@ html = """<!DOCTYPE html>
 			-ms-transform: translate(-50%, -50%);
 			-o-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);		
+		}
+
+		i{
+			color:orange;
 		}
 
 		#text{
@@ -44,13 +50,10 @@ html = """<!DOCTYPE html>
 		.recherche{
 			width:100%; text-align:center;
 				position: absolute;
-				top: 60%;
+				top: 55%;
 				left: 50%;
 				-webkit-transform: translate(-50%, -50%);
 				-moz-transform: translate(-50%, -50%);
-				-ms-transform: translate(-50%, -50%);
-				-o-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
 		}
 
 
@@ -60,15 +63,15 @@ html = """<!DOCTYPE html>
 	<script type="text/javascript">
 		function jump(){
 			if(document.getElementById('text').value)
-				document.form.action = "pageB.html";
+				document.form.action = "pageB.py";
 			else
-				document.form.action = "pageA.html";
+				document.form.action = "pageA.py";
 		}
 	</script>
 	<div class="all">
-		<img src="logo.png" alt="logo">
-	<form method="post" action="pageB.py" class="recherche">
-		<input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="Valider" onclick="jump()">
+		<h1> Recherche <i>Gr6</i></h1>
+	<form name="form" method="post" action="" class="recherche">
+		<input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="valider" onclick="jump()">
 	</form>
 	</div>
 </body>

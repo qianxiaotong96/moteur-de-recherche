@@ -73,7 +73,7 @@ html = """<!DOCTYPE html>
 </head>
 <body>
 	<div class="all">
-	<form method="post" action="" class="recherche"><span>Recherche <i>Gr6  </i></span><input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="Valider">
+	<form method="post" action="pageB.py" class="recherche"><span>Recherche <i>Gr6  </i></span><input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="Valider">
 	</form>
 	</div>
 	</br>

@@ -1,27 +1,26 @@
-#!/usr/bin/python
-#coding:utf-8
+#!/usr/bin/python3.8
+#incoding:utf-8
 import cgi
+import cgitb
+
+cgitb.enable()
+form = cgi.FieldStorage()
 
 print("Content-type:text/html;charset=utf-8\n")
 
 html = """<!DOCTYPE html>
 <html>
 <head>
-	<title>Cherche</title>
+	<meta charset="utf-8">
+	<title>Resultat</title>
 	<style type="text/css">
 	
-		h1{
+		span{
 			font-family: Georgia;
+			font-weight: bold;
+			font-size: 20px;
 			text-shadow:#f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0;
-			color: deepskyblue;
-			position: absolute;
-			top: 40%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			-moz-transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			-o-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);		
+			color: deepskyblue;	
 		}
 
 		i{
@@ -48,16 +47,23 @@ html = """<!DOCTYPE html>
 		}
 
 		.recherche{
-			width:100%; text-align:center;
-				position: absolute;
-				top: 55%;
-				left: 50%;
-				-webkit-transform: translate(-50%, -50%);
-				-moz-transform: translate(-50%, -50%);
+			width:100%; 
+			position: absolute;
+			top: 5%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
 		}
 
+		#resultat{
+			margin-left:20px;
+		}
 
-	</style>
+		p{
+			font-size:small;
+		}
+
+		</style>
 </head>
 <body>
 	<script type="text/javascript">
@@ -69,13 +75,51 @@ html = """<!DOCTYPE html>
 		}
 	</script>
 	<div class="all">
-		<h1> Recherche <i>Gr6</i></h1>
-	<form name="form" method="post" action="" class="recherche">
-		<input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="valider" onclick="jump()">
+	<form method="post" action="pageB.py" class="recherche"><span>Recherche <i>Gr6  </i></span><input id="text" type="text" name="cherche" placeholder="entrez ce que vous voulez chercher"><input id="submit" type="submit" value="Valider">
 	</form>
+	</div>
+	</br>
+	</br>
+	</br>
+	<hr>
+"""
+print(html)
+if form.getvalue("cherche"):
+	username = form.getvalue("cherche")
+	print(f"vous cherchez : {username}")
+	nbre = 6
+	print(f" (environ {nbre} résultats ont été trouvés)")
+else:
+	print("entrez un mot-clef pour chercher !!!")
+html2="""
+	<div id="resultat">
+	<div>
+	<a href="#">Resultat1 </a>
+	<p> Contenu1 </p>
+	</div>
+	<div>
+	<a href="#">Resultat2 </a>
+	<p> Contenu2 </p>
+	</div>
+	<div>
+	<a href="#">Resultat3 </a>
+	<p> Contenu3 </p>
+	</div>
+	<div>
+	<a href="#">Resultat4 </a>
+	<p> Contenu4 </p>
+	</div>
+	<div>
+	<a href="#">Resultat5 </a>
+	<p> Contenu5 </p>
+	</div>
+	<div>
+	<a href="#">Resultat6 </a>
+	<p> Contenu6 </p>
+	</div>
 	</div>
 </body>
 </html>
 """
 
-print(html)
+print(html2)

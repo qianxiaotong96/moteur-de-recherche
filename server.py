@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 import http.server
 
-port = 80
+port =8080
 address = ("",port)
 
 server = http.server.HTTPServer

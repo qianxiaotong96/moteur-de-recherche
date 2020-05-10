@@ -1,17 +1,29 @@
-#-*- coding:utf-8 -*-
-import http.server
+from flask import Flask, render_template, request, url_for
+#import celui du index_inversé
+from Yacine import index_inverse as ii
+#import os,sys
 
-port =8080
-address = ("",port)
+app = Flask(__name__,template_folder='.')
 
-server = http.server.HTTPServer
+@app.route("/")
+@app.route("/pageA")
+def pageA():
+		return render_template('pageA.html')
 
-handler = http.server.CGIHTTPRequestHandler
-handler.cgi_directories = ["/"]
+@app.route("/pageB",methods=['POST'])
+def pageB():
+	result = request.form
+	index = ii.index_inverse(score = "log")
+	index.compute()
+	dic= index.ten_first(result)
+	length = len(dic)
+	return render_template('pageB.html',length=length,result=result,posts=dic)
 
-httpd = server(address,handler)
+@app.route("/home")
+def home():
+	return render_template('home.html',posts=dic)
 
-print(f"Serveur démarré sur le PORT {port}")
+if __name__ == '__main__':
+   app.run(debug = True)
 
-httpd.serve_forever()
 

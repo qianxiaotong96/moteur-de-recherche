@@ -1,5 +1,3 @@
-#pip3 install Flask
-
 from flask import Flask, render_template, request, url_for
 import os,sys
 

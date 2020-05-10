@@ -2,6 +2,8 @@
 # installation nécessaire
 pip3 install Flask
 
+# avant d'exécuter il faut mettre tous les fichiers du projet dans un même répertoire(celui de la partie qualité et index_inversé)
+# ensuite il faut changer le "import" en haut du fichier "server.py" en incluant le fichier index_inverse.py
 # exécuter le serveur en utilisant
 python server.py
 

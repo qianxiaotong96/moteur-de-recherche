@@ -12,6 +12,7 @@ def pageA():
 
 @app.route("/pageB",methods=['POST'])
 def pageB():
+	#appliquer la partie index_inversé
 	result = request.form
 	index = ii.index_inverse(score = "log")
 	index.compute()
